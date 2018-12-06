@@ -149,13 +149,14 @@ $(document).ready(function () {
 
     function back(e) {
         e.preventDefault();
+        var p = e.target.getAttribute('data-page');
         if ($('body').hasClass('page_style')) {
             $('body').removeClass('page_style');
+            $('.page#' + p).removeClass('page_style');
             window.scrollTo(0, 0);
             slider.startAuto();
         } else {
             $('body').addClass('page_style');
-            var p = e.target.getAttribute('data-page');
             $('.page#' + p).addClass('page_style');
             slider.stopAuto();
         }
