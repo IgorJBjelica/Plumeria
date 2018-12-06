@@ -154,6 +154,7 @@ img.darrow {
 
 .card.hover:after {
     opacity: .2;
+    height: 100%;
 }
 
 .card.first,
@@ -255,7 +256,7 @@ footer {
     transition: max-height 0.5s;
     font-family: var(--main-font) !important;
 
-    z-index: 2;
+    z-index: 3;
 }
 
 footer .container {
@@ -452,7 +453,7 @@ body.page_style .ctrl.next {
     max-height: 0;
 }
 
-body.page_style .page {
+body.page_style .page.page_style {
     visibility: visible;
 }
 

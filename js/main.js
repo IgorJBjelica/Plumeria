@@ -155,6 +155,8 @@ $(document).ready(function () {
             slider.startAuto();
         } else {
             $('body').addClass('page_style');
+            var p = e.target.getAttribute('data-page');
+            $('.page#' + p).addClass('page_style');
             slider.stopAuto();
         }
     };
