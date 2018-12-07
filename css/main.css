@@ -72,8 +72,8 @@ aside.lang {
 
 
 
-/*iz nekog razloga nisam mogao da direktno promenim font-weight iz aside.lang-a,
-a jesam preko globalnog h4 (wtf), pa sam koristio id*/
+/** iz nekog razloga nisam mogao da direktno promenim font-weight iz aside.lang-a,
+    a jesam preko globalnog h4 (wtf), pa sam koristio id **/
 #sr, #en {
   font-weight: lighter;
 }
@@ -108,14 +108,14 @@ aside.soc {
 
 aside.soc a {
     margin: 1.2rem 0;
-    transition: all 0.3s;  /*mile protiv tranzicije*/
+    transition: all 0.3s;  /** mile protiv tranzicije **/
 }
 
 
 
 
 
-/*dodao hover efekat*/
+/** dodao hover efekat **/
 aside.soc a:hover {
     /*fill: #e28d8e;*/
     fill: black;
@@ -166,7 +166,7 @@ img.darrow {
 
 img.darrow {
     width: 3rem;
-    /* margin: 10vh auto 0; */
+    /** margin: 10vh auto 0; **/
     position: absolute;
     bottom: 0;
     margin-left: calc((100vw - 3rem)/2);
@@ -254,9 +254,18 @@ img.darrow {
     background: center / contain no-repeat url('../images/right-arrow.svg');
 }
 
+
+
+
+
+
+
+
+
+
 .bar_title {
     position: fixed;
-    bottom: 10vh;
+    bottom: 4vh; /** smanjio sa 10vh **/
     left: 0;
     width: 100vw;
     letter-spacing: .15rem;
@@ -270,17 +279,22 @@ img.darrow {
     margin: 1rem auto;
     opacity: 1;
 
-    background-color: #E28D8E;
 }
 
+
+
+
+
+
+/** ovde si imao dva puta height, i stavio jacu crvenu**/
 .progress_bar .bar {
     float: right;
     width: 100%;
-    height: 9px;
+    height: 2px; /** smanjio sa 9px **/
     margin-top: -3px;
-    height: 10px;
 
-    background-color: #E28D8E;
+    background-color: #d0494b;
+    /*background-color: #E28D8E;*/
 }
 
 /* ***********************************FOOTER************************************************ */
