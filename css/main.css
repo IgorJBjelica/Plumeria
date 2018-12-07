@@ -52,10 +52,30 @@ aside.lang {
     height: 94vh;
     writing-mode: tb-rl;
     transform: rotate(-180deg);
-    font-weight: bold;
 
     display: flex;
     justify-content: center;
+}
+
+
+
+
+
+
+
+/* PAGE ONE */
+
+
+
+
+
+
+
+
+/*iz nekog razloga nisam mogao da direktno promenim font-weight iz aside.lang-a,
+a jesam preko globalnog h4 (wtf), pa sam koristio id*/
+#sr, #en {
+  font-weight: lighter;
 }
 
 aside.lang *, aside.soc {
@@ -78,8 +98,28 @@ aside.soc {
     z-index: 3;
 }
 
+
+
+
+
+
+
+
+
 aside.soc a {
     margin: 1.2rem 0;
+    transition: all 0.3s;  /*mile protiv tranzicije*/
+}
+
+
+
+
+
+/*dodao hover efekat*/
+aside.soc a:hover {
+    /*fill: #e28d8e;*/
+    fill: black;
+    transform: scale(1.1);
 }
 
 /* ******************************SLIDER************************************* */
