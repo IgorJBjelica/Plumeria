@@ -57,23 +57,6 @@ aside.lang {
     justify-content: center;
 }
 
-
-
-
-
-
-
-/* PAGE ONE */
-
-
-
-
-
-
-
-
-/** iz nekog razloga nisam mogao da direktno promenim font-weight iz aside.lang-a,
-    a jesam preko globalnog h4 (wtf), pa sam koristio id **/
 #sr, #en {
   font-weight: lighter;
 }
@@ -98,27 +81,15 @@ aside.soc {
     z-index: 3;
 }
 
-
-
-
-
-
-
-
-
 aside.soc a {
     margin: 1.2rem 0;
-    transition: all 0.3s;  /** mile protiv tranzicije **/
+    transition: all 0.3s;
 }
 
-
-
-
-
-/** dodao hover efekat **/
 aside.soc a:hover {
-    /*fill: #e28d8e;*/
-    fill: black;
+    /*fill: #7E5824;
+    fill: #e28d8e;*/
+    fill: #000;
     transform: scale(1.1);
 }
 
@@ -254,18 +225,9 @@ img.darrow {
     background: center / contain no-repeat url('../images/right-arrow.svg');
 }
 
-
-
-
-
-
-
-
-
-
 .bar_title {
     position: fixed;
-    bottom: 4vh; /** smanjio sa 10vh **/
+    bottom: 4vh;
     left: 0;
     width: 100vw;
     letter-spacing: .15rem;
@@ -281,20 +243,14 @@ img.darrow {
 
 }
 
-
-
-
-
-
-/** ovde si imao dva puta height, i stavio jacu crvenu**/
 .progress_bar .bar {
     float: right;
     width: 100%;
-    height: 2px; /** smanjio sa 9px **/
+    height: 2px;
     margin-top: -3px;
 
-    background-color: #d0494b;
-    /*background-color: #E28D8E;*/
+    /* background-color: #d0494b; */
+    background-color: #E28D8E;
 }
 
 /* ***********************************FOOTER************************************************ */
@@ -501,10 +457,11 @@ body.page_style .ctrl.next {
     position: absolute;
     top: 0;
     width: 100%;
-    max-height: 100%;
+    max-height: 100%; /** dva max-height-a? **/
     margin-top: 100vh;
     visibility: hidden;
     max-height: 0;
+    font-family: var(--main-font);
 }
 
 body.page_style .page.page_style {
@@ -654,6 +611,9 @@ span {
     width: 100%;
     display: flex;
     align-items: center;
+    margin-top: 30px;
+    padding-top: 100px;
+    padding-bottom: 100px;
 }
 
 .horizontal_divider {
@@ -663,11 +623,25 @@ span {
     background-color: #E28D8E;
 }
 
+.horizontal_divider_double {
+    width: 50%;
+    height: 3px;
+    background-color: #E28D8E;
+}
+
 .title_ponuda .horizontal_divider {
     width: 30%;
     position: absolute;
     right: 20%;
     top: 31%;
+}
+
+.list_ponuda {
+  padding: 3rem 7vw;
+  font-size: 1.3rem;
+  line-height: 1.8rem;
+  color: #999999;
+  text-transform: uppercase;
 }
 
 .blurb p {
@@ -711,6 +685,7 @@ span {
     font-size: 1.3rem;
     color: grey;
     line-height: 1.4;
+    
 }
 
 .shapes {
