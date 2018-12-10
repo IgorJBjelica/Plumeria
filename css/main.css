@@ -417,6 +417,10 @@ body.page_style .card.middle {
     cursor: url(/posao/Plumeria/web/images/cursor.png), auto;
 }
 
+.back {
+  text-shadow: 0 2px 5px #7E5824;
+}
+
 body.page_style img.darrow:hover {
     cursor: pointer;
 }
