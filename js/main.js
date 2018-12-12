@@ -174,8 +174,25 @@ $(document).ready(function () {
           });
     })
 
+    // Kontrola footera //
+
     $('.fTab').on('click', function () {
         $(this).toggleClass('active');
+    });
+
+    $(document.body).click( function() {
+        $('.fTab').removeClass('active');
+    });
+    
+    $(".fTab").click( function(e) {
+        e.stopPropagation();
+    });
+
+    $(window).scroll(function() {
+        if($(window).scrollTop() + $(window).height() > $(document).height() - 1) {
+            if(!$('.fTab').hasClass('active'))
+                $('.fTab:first').addClass('active');
+        }
     });
 });
 
