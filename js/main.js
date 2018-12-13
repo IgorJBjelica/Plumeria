@@ -1,4 +1,8 @@
 window.onbeforeunload = function () {
+    scrollWindow();
+}
+
+function scrollWindow() {
     window.scrollTo(0, 0);
 }
 
@@ -147,16 +151,43 @@ $(document).ready(function () {
             }
         });
 
+    function getToSlide(pageData) {
+        
+        var slide_index = 0;
+        switch (pageData) {
+            case 'page_one':
+                slide_index = 0
+                break;
+            case 'page_two':
+                slide_index = 1
+                break;
+            case 'page_three':
+                slide_index = 2
+                break;
+            case 'page_four':
+                slide_index = 3
+                break;
+        }
+        slider.goToSlide(slide_index);
+    }
+
     function back(e) {
         e.preventDefault();
-        var p = e.target.getAttribute('data-page');
+        var p = $(e.target).attr('data-page');
         if ($('body').hasClass('page_style')) {
+            deactivate();
+            scrollWindow();
+            $('.page').removeClass('page_style');
             $('body').removeClass('page_style');
-            $('.page#' + p).removeClass('page_style');
-            window.scrollTo(0, 0);
-            slider.startAuto();
+            if ($(e.target).attr('class') == 'nav')
+                back(e);
+            else
+                slider.startAuto();
         } else {
+            if ($(e.target).attr('class') == 'nav')
+                getToSlide(p);
             $('body').addClass('page_style');
+            $('.card[data-page='+p+']').addClass('page_style');
             $('.page#' + p).addClass('page_style');
             slider.stopAuto();
         }
@@ -164,6 +195,7 @@ $(document).ready(function () {
 
     $('.card.middle').click(function (e) {back(e)});
     $('.back').click(function (e) {back(e)});
+    $('footer .nav').click(function (e) {back(e)});
 
     $('.darrow').click(function (e) {
         var height = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
@@ -180,8 +212,12 @@ $(document).ready(function () {
         $(this).toggleClass('active');
     });
 
-    $(document.body).click( function() {
+    function deactivate() {
         $('.fTab').removeClass('active');
+    }
+
+    $(document.body).click( function() {
+        deactivate();
     });
     
     $(".fTab").click( function(e) {
@@ -194,6 +230,8 @@ $(document).ready(function () {
                 $('.fTab:first').addClass('active');
         }
     });
+
+
 });
 
 window.onscroll( function () {

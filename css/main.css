@@ -14,6 +14,7 @@ body {
     overflow-y: hidden;
     font-family: var(--main-font);
     background-color: #F3F3F4;
+    scroll-behavior: smooth;
 }
 
 h1,
@@ -304,7 +305,7 @@ footer {
     right: 0;
     bottom: 0;
     max-height: 0;
-    height: 65vh;
+    height: 78vh;
     background-color: #ffffff;
     -webkit-transition: max-height 0.5s;
     transition: max-height 0.5s;
@@ -338,7 +339,7 @@ footer .container>* {
     cursor: pointer;
 
     -webkit-transition: all 0.5s;
-    transition: all 0.5s;
+    transition: all 0.5s ease-out;
 }
 
 .fTab svg, footer svg {
@@ -364,11 +365,11 @@ svg {
 }
 
 .fTab.active {
-    bottom: 65vh;
+    bottom: 78vh;
 }
 
 .fTab.active+footer {
-    max-height: 65vh;
+    max-height: 78vh;
 }
 
 .fTab:hover {
@@ -377,8 +378,9 @@ svg {
 
 footer .container>p {
     font-size: .9rem;
-    margin: 2vh auto;
-    max-width: 944px;
+    line-height: 1.7rem;
+    margin: 3vh auto 5vh;
+    width: 81.45%;
 }
 
 footer p.first {
@@ -391,6 +393,7 @@ footer p.first {
     justify-content: space-between;
     align-items: stretch;
     max-height: 30vh;
+    margin-bottom: 5vh !important;
 }
 
 .row_3 {
@@ -402,6 +405,14 @@ footer p.first {
 
 .row_3 h4 a {
     font-family: var(--main-font);
+    color: inherit;
+    text-decoration: none;
+    font-size: .94rem;
+}
+
+.kontakt_info {
+    font-family: var(--second-font);
+    line-height: 1.4rem;
 }
 
 .row_3 h4.lang {
@@ -409,7 +420,7 @@ footer p.first {
 }
 
 .footers_footer {
-    height: 6vh;
+    height: 8vh;
     width: 100vw !important;
 
     display: flex;
@@ -418,6 +429,10 @@ footer p.first {
 
     background-color: #FFDE77;
     color: #000000;
+}
+
+.footers_footer p {
+    font-size: .82rem;
 }
 
 /* ****************************************ON PAGE OPEN******************************************* */
@@ -436,7 +451,7 @@ body.page_style .card.last {
     /* max-width: 0; */
 }
 
-body.page_style .card.middle {
+.page_style .card.middle {
     transform: scale(4, 4);
     position: absolute;
     overflow: hidden;
@@ -449,7 +464,7 @@ body.page_style .card.middle {
     transition: all .8s ease-out;
 }
 
-body.page_style .card.middle img {
+.page_style .card.middle img {
     /* transform: translateY(-29%); */
     width: 100%;
 
