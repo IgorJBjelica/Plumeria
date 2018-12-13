@@ -33,7 +33,13 @@ header {
     width: 100vw;
     height: 90px;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 
     z-index: 3;
@@ -51,10 +57,20 @@ aside.lang {
     top: 0;
     left: 3vw;
     height: 94vh;
+    -webkit-writing-mode: tb-rl;
+    -ms-writing-mode: tb-rl;
     writing-mode: tb-rl;
+    -webkit-transform: rotate(-180deg);
+    -ms-transform: rotate(-180deg);
     transform: rotate(-180deg);
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
 }
 
@@ -75,11 +91,13 @@ aside.lang {
 
 /** iz nekog razloga nisam mogao da direktno promenim font-weight iz aside.lang-a,
     a jesam preko globalnog h4 (wtf), pa sam koristio id **/
-#sr, #en {
-  font-weight: lighter;
+#sr,
+#en {
+    font-weight: lighter;
 }
 
-aside.lang *, aside.soc {
+aside.lang *,
+aside.soc {
     fill: #6E6E6E;
     color: #6E6E6E;
 }
@@ -91,9 +109,20 @@ aside.soc {
     height: 94vh;
     width: 1rem;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 
     z-index: 3;
@@ -109,7 +138,10 @@ aside.soc {
 
 aside.soc a {
     margin: 1.2rem 0;
-    transition: all 0.3s;  /** mile protiv tranzicije **/
+    -webkit-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+    /** mile protiv tranzicije **/
 }
 
 
@@ -120,6 +152,8 @@ aside.soc a {
 aside.soc a:hover {
     /*fill: #e28d8e;*/
     fill: black;
+    -webkit-transform: scale(1.1);
+    -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
 
@@ -134,21 +168,33 @@ aside.soc a:hover {
 }
 
 .slider {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
     width: 100vw;
     height: 100%;
 }
 
 .slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
     /* width: 100vw;
     height: 420px; */
 }
 
 .slide .inner_slide {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
     flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
     /* width: 100vw; */
     height: 100%;
@@ -177,6 +223,10 @@ img.darrow {
     width: 280px;
     position: relative;
 
+    -webkit-transition: all .8s ease-out;
+
+    -o-transition: all .8s ease-out;
+
     transition: all .8s ease-out;
 }
 
@@ -189,6 +239,10 @@ img.darrow {
     height: 100%;
     opacity: 0;
     background-color: #E28D8E;
+
+    -webkit-transition: all .8s ease-out;
+
+    -o-transition: all .8s ease-out;
 
     transition: all .8s ease-out;
 }
@@ -203,19 +257,29 @@ img.darrow {
     width: 240px;
     height: 85%;
     z-index: -1;
+    -ms-flex-item-align: center;
+    -ms-grid-row-align: center;
     align-self: center;
 }
 
 .card.first {
+    -webkit-transform: translateX(10%);
+    -ms-transform: translateX(10%);
     transform: translateX(10%)
 }
 
 .card.last {
+    -webkit-transform: translateX(-10%);
+    -ms-transform: translateX(-10%);
     transform: translateX(-10%)
 }
 
 .card.middle {
     z-index: 0;
+
+    -webkit-transition: all .8s ease-out;
+
+    -o-transition: all .8s ease-out;
 
     transition: all .8s ease-out;
 }
@@ -266,7 +330,8 @@ img.darrow {
 
 .bar_title {
     position: fixed;
-    bottom: 4vh; /** smanjio sa 10vh **/
+    bottom: 4vh;
+    /** smanjio sa 10vh **/
     left: 0;
     width: 100vw;
     letter-spacing: .15rem;
@@ -291,7 +356,8 @@ img.darrow {
 .progress_bar .bar {
     float: right;
     width: 100%;
-    height: 2px; /** smanjio sa 9px **/
+    height: 2px;
+    /** smanjio sa 9px **/
     margin-top: -3px;
 
     /* background-color: #d0494b; */
@@ -307,17 +373,26 @@ footer {
     max-height: 0;
     height: 78vh;
     background-color: #ffffff;
-    -webkit-transition: max-height 0.5s;
-    transition: max-height 0.5s;
+    -webkit-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
+    transition: all 0.5s ease-out;
     font-family: var(--main-font) !important;
 
     z-index: 3;
 }
 
 footer .container {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -ms-flex-line-pack: center;
     align-content: center;
     height: 100%;
 }
@@ -339,10 +414,13 @@ footer .container>* {
     cursor: pointer;
 
     -webkit-transition: all 0.5s;
+    -webkit-transition: all 0.5s ease-out;
+    -o-transition: all 0.5s ease-out;
     transition: all 0.5s ease-out;
 }
 
-.fTab svg, footer svg {
+.fTab svg,
+footer svg {
     fill: #000000;
 }
 
@@ -389,18 +467,36 @@ footer p.first {
 }
 
 .footer_info {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
+    -webkit-box-align: stretch;
+    -ms-flex-align: stretch;
     align-items: stretch;
     max-height: 30vh;
     margin-bottom: 5vh !important;
 }
 
 .row_3 {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
     flex-direction: column;
+    -ms-flex-pack: distribute;
     justify-content: space-around;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
     align-items: flex-start;
+}
+
+.row_3.icon {
+    max-width: 26%;
 }
 
 .row_3 h4 a {
@@ -423,8 +519,16 @@ footer p.first {
     height: 8vh;
     width: 100vw !important;
 
+    display: -webkit-box;
+
+    display: -ms-flexbox;
+
     display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
     justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 
     background-color: #FFDE77;
@@ -440,9 +544,15 @@ body.page_style {
     overflow-y: scroll;
 }
 
+body.page_style .shapes {
+    opacity: 0;
+}
+
 body.page_style .main_slider .bx-viewport[style] {
     height: 75vh !important;
 
+    -webkit-transition: all .8s ease-out;
+    -o-transition: all .8s ease-out;
     transition: all .8s ease-out;
 }
 
@@ -452,15 +562,20 @@ body.page_style .card.last {
 }
 
 .page_style .card.middle {
+    -webkit-transform: scale(4, 4);
+    -ms-transform: scale(4, 4);
     transform: scale(4, 4);
     position: absolute;
     overflow: hidden;
 
+    -webkit-transition: all .8s ease-out;
+    -o-transition: all .8s ease-out;
     transition: all .8s ease-out;
 }
 
 .card.middle img {
-
+    -webkit-transition: all .8s ease-out;
+    -o-transition: all .8s ease-out;
     transition: all .8s ease-out;
 }
 
@@ -468,12 +583,14 @@ body.page_style .card.last {
     /* transform: translateY(-29%); */
     width: 100%;
 
+    -webkit-transition: all .8s ease-out;
+    -o-transition: all .8s ease-out;
     transition: all .8s ease-out;
 }
 
 body.page_style .back,
 body.page_style .card.middle {
-    cursor: url(/posao/Plumeria/web/images/cursor.png), auto;
+    cursor: url(/posao/Plumeria/web/images/cursor.png), crosshair;
 }
 
 body.page_style img.darrow:hover {
@@ -530,7 +647,7 @@ body.page_style .page.page_style {
     width: 100%;
     height: 60vh;
     margin: 5% 0 10%;
-    background: left bottom/110% no-repeat url(/posao/Plumeria/web/images/Vencanice/desent.jpg);
+    background: left bottom/110% no-repeat url(../../web/images/Vencanice/desent.jpg);
 }
 
 .page_header h1 {
@@ -548,8 +665,7 @@ body.page_style .page.page_style {
 .main_collage_slider,
 .v_main_collage_slider {
     position: absolute;
-    /* height: 100%; */
-    max-width: 52%;
+    width: 52%;
     overflow: hidden;
 }
 
@@ -592,14 +708,14 @@ span {
     bottom: 0;
     right: 0;
     height: 70%;
-    max-width: 55%;
+    width: 55%;
 }
 
 .v_main_collage_slider.right {
     bottom: 0;
     right: 0;
     height: 300px;
-    max-width: 55%;
+    width: 55%;
 }
 
 .pager {
@@ -607,7 +723,11 @@ span {
     bottom: 3%;
     left: 4%;
     width: 40%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
     justify-content: space-between;
     color: #999999;
     font-size: 1.3rem;
@@ -644,11 +764,10 @@ span {
     bottom: 10%;
     right: 63%;
     left: auto;
-
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
     transform: scaleX(-1);
+    -webkit-filter: FlipH;
     filter: FlipH;
     -ms-filter: "FlipH";
 }
@@ -656,18 +775,21 @@ span {
 .v_collage_prev {
     top: 95%;
     left: 9%;
-
-    -moz-transform: scaleX(-1);
-    -o-transform: scaleX(-1);
     -webkit-transform: scaleX(-1);
+    -ms-transform: scaleX(-1);
     transform: scaleX(-1);
+    -webkit-filter: FlipH;
     filter: FlipH;
     -ms-filter: "FlipH";
 }
 
 .blurb {
     width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
     align-items: center;
 }
 
@@ -720,7 +842,11 @@ span {
 
 .text_ponuda {
     width: 55%;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
+    -webkit-box-pack: space-evenly;
+    -ms-flex-pack: space-evenly;
     justify-content: space-evenly;
     text-transform: uppercase;
     font-size: 1.3rem;
@@ -730,6 +856,11 @@ span {
 
 .shapes {
     position: absolute;
+    opacity: 1;
+
+    -webkit-transition: opacity 1s ease-out;
+    -o-transition: opacity 1s ease-out;
+    transition: opacity 1s ease-out;
 }
 
 .shapes.up.left svg {
@@ -765,6 +896,10 @@ span {
 
 .narrower {
     max-width: 10% !important;
+}
+
+.up.right {
+    width: 23%;
 }
 
 .up.left {
