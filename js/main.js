@@ -7,22 +7,31 @@ function scrollWindow() {
 }
 
 $(document).ready(function () {
-    var slider = $('.slider').bxSlider({
+
+    var defaults = {
         nextSelector: '.next',
-        prevSelector: '.prev',
+        // prevSelector: '.prev',
         nextText: '',
         prevText: '',
         slideSelector: 'div.slide',
-        // infiniteLoop: true,
+        infiniteLoop: true,
         adaptiveHeight: true,
         keyboardEnabled: false,
         touchEnabled: false,
         wrapperClass: '.main_slider',
         pager: false,
-        // auto: true,
-        easing: 'ease-out',
-        // pause: 4000
-    });
+        auto: true,
+        easing: 'ease-out'
+    }
+
+    if (window.outerWidth > 780) {
+    }
+    else if (window.outerWidth <= 780) {
+        defaults.touchEnabled = true;
+        defaults.nextSelector = null;
+    }
+
+    var slider = $('.slider').bxSlider(defaults);
 
     // ***************************Slider Collage first************************************************************
 
