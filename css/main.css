@@ -1,3 +1,14 @@
+/* FIXME:
+  - card.middle se nekad izduzuje pri resize-u vjuporta, a nekad h3 ispod
+  slajdera biva preklopljen od strane necega;
+  - kod main_slider desna slika odlazi dole kad suzis vjuport po sirini;
+  - main_slider se ne vidi kada se uradi refresh pri smanjenom vjuportu;
+  - u poslovnim dogadjajima, slab kontrast izmedju h3.back i pozadine;
+  - pri smanjenju vjuporta, u trenutni card middle ulazi sledeci sa desne strane;
+  - zuta linija u footers_footer-u prekirva vecinu naziva "Plumerija";
+*/
+
+
 :root {
     --cursive-font: 'Yellowtail', cursive;
     --second-font: 'Josefin Sans', sans-serif;
@@ -53,9 +64,9 @@ header {
 
 /* ASIDE LANGUAGE */
 aside.lang {
-    position: absolute;
+      position: fixed; /* FIXME: stavio fixed */
     top: 0;
-    left: 3vw;
+        left: 2vw; /* FIXME: izjednacio sa aside.soc right */
     height: 94vh;
     -webkit-writing-mode: tb-rl;
     -ms-writing-mode: tb-rl;
@@ -72,25 +83,14 @@ aside.lang {
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
+
+        z-index: 3; /* FIXME: stavio da se ne podvlaci pod header img */
 }
-
-
-
-
-
 
 
 /* PAGE ONE */
 
 
-
-
-
-
-
-
-/** iz nekog razloga nisam mogao da direktno promenim font-weight iz aside.lang-a,
-    a jesam preko globalnog h4 (wtf), pa sam koristio id **/
 #sr,
 #en {
     font-weight: lighter;
@@ -128,27 +128,13 @@ aside.soc {
     z-index: 3;
 }
 
-
-
-
-
-
-
-
-
 aside.soc a {
     margin: 1.2rem 0;
     -webkit-transition: all 0.3s;
     -o-transition: all 0.3s;
     transition: all 0.3s;
-    /** mile protiv tranzicije **/
 }
 
-
-
-
-
-/** dodao hover efekat **/
 aside.soc a:hover {
     /*fill: #e28d8e;*/
     fill: black;
@@ -156,6 +142,129 @@ aside.soc a:hover {
     -ms-transform: scale(1.1);
     transform: scale(1.1);
 }
+
+    .vencanja {
+        background: right bottom/110% no-repeat url(../images/Vencanice/desent.jpg);
+    }
+
+
+/* PAGE TWO */
+
+    .dizajn {
+        background: left center/100% no-repeat url(../images/dizajn/dsc03982.jpg);
+    }
+
+    .blurb_left p {
+        padding-right: 10px;
+    }
+
+    .blurb_left li {
+        text-decoration: none;
+        list-style: none;
+        padding: 1rem 2vw 1rem 1vw;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        color: #999999;
+    }
+
+    .blurb_left ul {
+        padding-top: 20px;
+    }
+
+    .blurb_left .horizontal_divider {
+        width: 120%;
+    }
+
+    #dizajn_heading {
+        padding-top: 2%;
+    }
+
+/* PAGE THREE */
+
+    .deca {
+        background: left center/100% no-repeat url(../images/kids/20170723-dscf3463.jpg);
+    }
+
+
+/* PAGE FOUR */
+
+    .biznis {
+        background: left center/100% no-repeat url(../images/biznis/plumeria-carbon8.jpg);
+    }
+
+    .image_container {
+        position: relative;
+        min-height: 90vh;
+        overflow: hidden;
+    }
+
+    .section_main_image_left {
+        width: 46%;
+        position: relative;
+        top: 70px;
+        left: 9%;
+        /*box-shadow: 0 0 8px black;*/
+    }
+
+    .section_main_image_right {
+        width: 46%;
+        position: absolute;
+        top: 30%;
+        left: 46%;
+        /*box-shadow: 0 0 8px black;*/
+
+        #biznis_heading {
+
+        }
+    }
+
+    .middle-image {
+        width: 80vw;
+        padding: 5% 10%;
+    }
+
+    .list_ponuda {
+        padding: 3rem 7vw;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        color: #999999;
+          text-transform: uppercase; /* FIXME: napravio da lista bude istog stila kao na prvoj strani */
+    }
+
+    .biznis-footer {
+        padding-bottom: 60vh;
+    }
+
+    .biznis-footer p {
+        margin: 2% 10%;
+        font-size: 1.3rem;
+        color: #999999;
+    }
+
+    #izbor {
+        color: #000;
+        text-transform: uppercase;
+        font-size: 2rem;
+    }
+
+    .v_main_collage_slider.right_2 {
+        bottom: 0;
+        right: 0;
+        height: 500px;
+        width: 55%;
+    }
+
+    .snovi_2 {
+        color: #999999;
+        position: absolute;
+        right: 0;
+        padding: 2% 0;
+    }
+
+    #biznis_vrh {
+        text-transform: uppercase;
+        color: #e28d8e;
+    }
 
 /* ******************************SLIDER************************************* */
 .main_slider {
@@ -224,9 +333,7 @@ img.darrow {
     position: relative;
 
     -webkit-transition: all .8s ease-out;
-
     -o-transition: all .8s ease-out;
-
     transition: all .8s ease-out;
 }
 
@@ -241,9 +348,7 @@ img.darrow {
     background-color: #E28D8E;
 
     -webkit-transition: all .8s ease-out;
-
     -o-transition: all .8s ease-out;
-
     transition: all .8s ease-out;
 }
 
@@ -278,9 +383,7 @@ img.darrow {
     z-index: 0;
 
     -webkit-transition: all .8s ease-out;
-
     -o-transition: all .8s ease-out;
-
     transition: all .8s ease-out;
 }
 
@@ -319,23 +422,12 @@ img.darrow {
     background: center / contain no-repeat url('../images/right-arrow.svg');
 }
 
-
-
-
-
-
-
-
-
-
 .bar_title {
     position: fixed;
     bottom: 4vh;
-    /** smanjio sa 10vh **/
     left: 0;
     width: 100vw;
     letter-spacing: .15rem;
-
     z-index: 0;
 }
 
@@ -347,17 +439,10 @@ img.darrow {
 
 }
 
-
-
-
-
-
-/** ovde si imao dva puta height, i stavio jacu crvenu**/
 .progress_bar .bar {
     float: right;
     width: 100%;
-    height: 2px;
-    /** smanjio sa 9px **/
+      height: 3px; /* FIXME: povecao za 1px da bude debljine strelice */
     margin-top: -3px;
 
     /* background-color: #d0494b; */
@@ -372,7 +457,6 @@ footer {
     bottom: 0;
     max-height: 0;
     height: 78vh;
-    width: 100vw;
     background-color: #ffffff;
     -webkit-transition: all 0.5s ease-out;
     -o-transition: all 0.5s ease-out;
@@ -482,23 +566,31 @@ footer p.first {
 }
 
 .row_3 {
+    display: flex;
     display: -webkit-box;
     display: -ms-flexbox;
-    display: flex;
+
+    flex-direction: column;
     -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
     -ms-flex-direction: column;
-    flex-direction: column;
-    -ms-flex-pack: distribute;
+
     justify-content: space-around;
+    -ms-flex-pack: distribute;
+
+    align-items: flex-start;
     -webkit-box-align: start;
     -ms-flex-align: start;
-    align-items: flex-start;
 }
 
 .row_3.icon {
     max-width: 26%;
 }
+
+/* FIXME: stavio peding */
+    .row_3 h4 {
+        padding-top: 10px;
+    }
 
 .row_3 h4 a {
     font-family: var(--main-font);
@@ -527,6 +619,7 @@ footer p.first {
     display: flex;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
+
     justify-content: center;
     -webkit-box-align: center;
     -ms-flex-align: center;
@@ -646,12 +739,12 @@ body.page_style .page.page_style {
 
 .page_header {
     width: 100%;
-    height: 60vh;
+    height: 50vh;
     margin: 5% 0 10%;
-    background: left bottom/110% no-repeat url(../../web/images/Vencanice/desent.jpg);
 }
 
 .page_header h1 {
+    max-width: 35%;
     margin: 0 3%;
     background-color: #f3f3f4;
 }
@@ -660,7 +753,7 @@ body.page_style .page.page_style {
     position: relative;
     width: 86vw;
     height: 80vh;
-    margin: 0 auto 5rem;
+        margin: 5em auto 5rem; /* FIXME: promenio sam gornju marginu sa 0 u 5em da dise malo paragraf iznad*/
 }
 
 .main_collage_slider,
@@ -687,7 +780,7 @@ body.page_style .page.page_style {
 }
 
 h1 {
-    padding: 5%;
+    padding: 6%; /* FIXME: povecao sa 5 */
     padding-right: 0;
     max-width: 44%;
     font-size: 4.7rem;
@@ -721,8 +814,8 @@ span {
 
 .pager {
     position: absolute;
-    bottom: 3%;
-    left: 4%;
+        bottom: 0%; /* FIXME: da li je ovo dovoljno razmaka? */
+        left: 3%; /* FIXME: smanjio sa 4% */
     width: 40%;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -789,15 +882,88 @@ span {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
 }
 
+.blurb p {
+    padding: 3rem 7vw;
+    font-size: 1.3rem;
+    line-height: 1.8rem;
+    color: #999999;
+}
+
+
+/* FIXME: napravio blurbove sa razlicitim text-align-om. ceo sledeci blok je moj do sledeceg FIXME */
+    .blurb_justify {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .blurb_justify p {
+        padding: 3rem 7vw;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        color: #999999;
+        text-align: justify;
+    }
+
+    .blurb_right {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .blurb_right p {
+        padding: 3rem 7vw;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        color: #999999;
+        text-align: right;
+    }
+
+    .blurb_left {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+    }
+
+    .blurb_left p {
+        padding: 3rem 6vw;
+        font-size: 1.3rem;
+        line-height: 1.8rem;
+        color: #999999;
+        text-align: left;
+    }
+
+    .horizontal_divider_double {
+        width: 50%;
+        height: 3px;
+        background-color: #E28D8E;
+    }
+
+
 .horizontal_divider {
     width: 132%;
     height: 3px;
-
     background-color: #E28D8E;
 }
 
@@ -806,13 +972,6 @@ span {
     position: absolute;
     right: 20%;
     top: 31%;
-}
-
-.blurb p {
-    padding: 3rem 7vw;
-    font-size: 1.3rem;
-    line-height: 1.8rem;
-    color: #999999;
 }
 
 .ponuda {
@@ -906,13 +1065,4 @@ span {
 .up.left {
     top: 5%;
     height: 37%;
-}
-
-
-
-/* *******************************MEDIA QUERY********************************* */
-@media screen and (max-width: 780) {
-    .card {
-        /* width: 200px; */
-    }
 }
